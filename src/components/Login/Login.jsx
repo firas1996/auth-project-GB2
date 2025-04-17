@@ -4,7 +4,16 @@ import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
 
-const emailReducer = (prevState, actions) => {};
+const emailReducer = (prevState, actions) => {
+  switch (actions.name) {
+    case "USER_TYPING":
+      return { value: actions.payload, isValid: actions.payload.includes("@") };
+    case "user nzel el barra":
+      return { value: prevState.value, isValid: prevState.value.includes("@") };
+    default:
+      return { value: "", isValid: null };
+  }
+};
 
 const Login = (props) => {
   // const [enteredEmail, setEnteredEmail] = useState("");
